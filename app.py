@@ -124,29 +124,7 @@ def handle_message(event):
                 )
     elif text.find('下次好了')!=-1 or text.find('掰')!=-1 or text.find('bye')!=-1:
         message = TextSendMessage(text='掰掰\U0001F44B\n歡迎隨時回來哦~')
-    elif text.find('學業')!=-1:
-        message = TemplateSendMessage(
-                alt_text='alt_text',
-                template = ButtonsTemplate(
-                            title='想了解學業哪個部分呢',
-                            text='點選查看更多...',
-                            actions=[
-                                MessageAction(
-                                    label='修課',
-                                    text='alt_text'
-                                ),
-                                MessageAction(
-                                    label='專題',
-                                    text='alt_text'
-                                ),
-                                MessageAction(
-                                    label='系上活動',
-                                    text='alt_text'
-                                )
-                            ]
-                )
-            )
-
+    #skills
     elif text.find('專業能力-1')!=-1:
         message = [
                 TextSendMessage(text='alt_text_1'),
@@ -177,7 +155,8 @@ def handle_message(event):
                             ]
                 )
             )
-
+    #學業
+    #course
     elif text=='課程類別1':
         course = ''
         for item in course1:
@@ -236,33 +215,7 @@ def handle_message(event):
                     )
                 )
         ]
-  
-    elif text.find('專題')!=-1:
-        message = [
-            TextSendMessage(text='alt_text'),
-            TemplateSendMessage(
-                alt_text='alt_text',
-                template = ButtonsTemplate(
-                            thumbnail_image_url="https://example.com/example.jpg",
-                            title='專題研究',
-                            text='查看專題研究相關...',
-                            actions=[
-                                PostbackAction(
-                                    label='專題介紹1',
-                                    data='alt_postback_1'
-                                ),
-                                MessageAction(
-                                    label='專題介紹2',
-                                    text='alt_text'
-                                ),
-                                URIAction(
-                                    label='專題介紹3',
-                                    uri='alt_url'
-                                )
-                            ]
-                )
-            )
-        ]
+    #專題
     elif text.find('專題介紹2')!=-1:
         message = [
             TextSendMessage(text='alt_text'),
@@ -285,10 +238,58 @@ def handle_message(event):
                 )
             )
         ]
-    
+    elif text.find('專題')!=-1:
+        message = [
+            TextSendMessage(text='alt_text'),
+            TemplateSendMessage(
+                alt_text='alt_text',
+                template = ButtonsTemplate(
+                            thumbnail_image_url="https://example.com/example.jpg",
+                            title='專題研究',
+                            text='查看專題研究相關...',
+                            actions=[
+                                PostbackAction(
+                                    label='專題介紹1',
+                                    data='研究'
+                                ),
+                                MessageAction(
+                                    label='專題介紹2',
+                                    text='alt_text'
+                                ),
+                                URIAction(
+                                    label='專題介紹3',
+                                    uri='alt_url'
+                                )
+                            ]
+                )
+            )
+        ]
+    #系上活動
     elif re.search('系上.*活動',text):
         message = TextSendMessage(text='alt_text')
-
+    elif text.find('學業')!=-1:
+        message = TemplateSendMessage(
+                alt_text='alt_text',
+                template = ButtonsTemplate(
+                            title='想了解學業哪個部分呢',
+                            text='點選查看更多...',
+                            actions=[
+                                MessageAction(
+                                    label='修課',
+                                    text='alt_text'
+                                ),
+                                MessageAction(
+                                    label='專題',
+                                    text='alt_text'
+                                ),
+                                MessageAction(
+                                    label='系上活動',
+                                    text='alt_text'
+                                )
+                            ]
+                )
+            )
+    #interest/hobbies
     elif text.find('興趣')!=-1:
         message = TemplateSendMessage(
                 alt_text='alt_text',
@@ -311,6 +312,7 @@ def handle_message(event):
                 ]
             )
         )
+    #其他
     elif text.find('github')!=-1:
         message = [
             TextSendMessage(text='這裡是我的github連結~'),
