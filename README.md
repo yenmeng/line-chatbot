@@ -1,8 +1,6 @@
 # line-chatbot
 simple chatbot using [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python) deployed on [heruko](https://dashboard.heroku.com/)<br><br>
 功能：一個可以promote自己的聊天機器人<br>
-掃描QRcode可以加入好友(my chatbot implementaion)<br>
-![](https://i.imgur.com/eMsER89.png)
 ## 開始之前
 * 使用[Chatbot developer console](https://developers.line.me/en/)<br>
 * 使用[Line Messaging API](https://developers.line.me/en/docs/messaging-api/getting-started/)取得CHANNEL_ACCESS_TOKEN和CHANNEL_SECRET加入app.py<br>
